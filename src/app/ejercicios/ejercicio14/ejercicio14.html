@@ -1,0 +1,30 @@
+<section class="mx-auto max-w-md p-4">
+    <h1 class="text-2xl font-semibold">Ejercicio 14: Productos con filtros</h1>
+    <p class="mt-2 text-neutral-700">Filtra por categoría y busca por nombre.</p>
+  
+    <div class="mt-4 grid grid-cols-1 gap-3">
+      <label class="flex flex-col">
+        <span class="text-sm text-gray-600">Categoría</span>
+        <select class="border rounded px-2 py-1 focus:outline-none focus:ring-2 focus:ring-black" [ngModel]="categoria()" (ngModelChange)="categoria.set($event)" name="cat">
+          <option value="todas">Todas</option>
+          <option *ngFor="let c of categorias" [value]="c">{{ c }}</option>
+        </select>
+      </label>
+  
+      <label class="flex flex-col">
+        <span class="text-sm text-gray-600">Buscar</span>
+        <input type="text" class="border rounded px-2 py-1 focus:outline-none focus:ring-2 focus:ring-black" [ngModel]="busqueda()" (ngModelChange)="busqueda.set($event)" placeholder="Nombre del producto" />
+      </label>
+    </div>
+  
+    <ul class="mt-4 space-y-2">
+      <li *ngFor="let p of lista()" class="border rounded px-3 py-2 bg-white  flex justify-between">
+        <span>{{ p.name }} <span class="text-sm text-gray-600">({{ p.category }})</span></span>
+        <span class="font-medium">{{ p.price | currency:'USD' }}</span>
+      </li>
+    </ul>
+    <app-next />
+  </section>
+  
+  
+  

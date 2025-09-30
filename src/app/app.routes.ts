@@ -1,3 +1,49 @@
 import { Routes } from '@angular/router';
+import { Ejercicio2 } from './ejercicios/ejercicio2/ejercicio2';
+import { Ejercicio3 } from './ejercicios/ejercicio3/ejercicio3';
+import { Ejercicio4 } from './ejercicios/ejercicio4/ejercicio4';
+import { Ejercicio5 } from './ejercicios/ejercicio5/ejercicio5';
+import { Ejercicio6 } from './ejercicios/ejercicio6/ejercicio6';
+import { Ejercicio7 } from './ejercicios/ejercicio7/ejercicio7';
+import { Ejercicio8 } from './ejercicios/ejercicio8/ejercicio8';
+import { Ejercicio9 } from './ejercicios/ejercicio9/ejercicio9';
+import { Ejercicio10 } from './ejercicios/ejercicio10/ejercicio10';
+import { Ejercicio11 } from './ejercicios/ejercicio11/ejercicio11';
+import { Ejercicio12 } from './ejercicios/ejercicio12/ejercicio12';
+import { Ejercicio13 } from './ejercicios/ejercicio13/ejercicio13';
+import { Ejercicio13Demo } from './ejercicios/ejercicio13/demo';
+import { Ejercicio14 } from './ejercicios/ejercicio14/ejercicio14';   
+import { Ejercicio15 } from './ejercicios/ejercicio15/ejercicio15';
+import { Ejercicio16 } from './ejercicios/ejercicio16/ejercicio16';
+import { Ejercicio17 } from './ejercicios/ejercicio17/ejercicio17';
+import { Ejercicio18 } from './ejercicios/ejercicio18/ejercicio18';
+import { Ejercicio19 } from './ejercicios/ejercicio19/ejercicio19';
+import { Ejercicio20 } from './ejercicios/ejercicio20/ejercicio20';
+import { Ejercicio21 } from './ejercicios/ejercicio21/ejercicio21';
+import { Home } from './home/home';
 
-export const routes: Routes = [];
+export const routes: Routes = [
+  { path: '', component: Home, pathMatch: 'full' },
+  { path: 'ejercicio/2', component: Ejercicio2 },
+  { path: 'ejercicio/3', component: Ejercicio3 },
+  { path: 'ejercicio/4', component: Ejercicio4 },
+  { path: 'ejercicio/5', component: Ejercicio5 },
+  { path: 'ejercicio/6', component: Ejercicio6 },
+  { path: 'ejercicio/7', component: Ejercicio7 },
+  { path: 'ejercicio/8', component: Ejercicio8 },
+  { path: 'ejercicio/9', component: Ejercicio9 },
+  { path: 'ejercicio/10', component: Ejercicio10 },
+  { path: 'ejercicio/11', component: Ejercicio11 },
+  { path: 'ejercicio/12', component: Ejercicio12 },
+  { path: 'ejercicio/13', component: Ejercicio13 },
+  { path: 'ejercicio/13/demo', component: Ejercicio13Demo },
+  { path: 'ejercicio/14', component: Ejercicio14 },
+  { path: 'ejercicio/15', component: Ejercicio15 },
+  { path: 'ejercicio/16', component: Ejercicio16 },
+  { path: 'ejercicio/17', component: Ejercicio17 },
+  { path: 'ejercicio/18', component: Ejercicio18 },
+  { path: 'ejercicio/19', component: Ejercicio19 },
+  { path: 'ejercicio/20', component: Ejercicio20 },
+  { path: 'ejercicio/21', component: Ejercicio21 },
+  { path: '**', redirectTo: '' }
+];

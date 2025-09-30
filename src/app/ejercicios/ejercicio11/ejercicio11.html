@@ -1,0 +1,37 @@
+<section class="mx-auto max-w-md p-4">
+  <h1 class="text-2xl font-semibold">Ejercicio 11: Favoritos</h1>
+  <p class="mt-2 text-neutral-700">Administra una lista en memoria (con persistencia local).</p>
+
+  <form class="mt-4 grid grid-cols-1 gap-3" (submit)="$event.preventDefault(); agregar()">
+    <label class="flex flex-col">
+      <span class="text-sm text-gray-600">Título</span>
+      <input type="text" class="border rounded px-2 py-1 focus:outline-none focus:ring-2 focus:ring-black" [ngModel]="titulo()" (ngModelChange)="titulo.set($event)" name="titulo" placeholder="Ej. Interestelar" />
+    </label>
+    <label class="flex flex-col">
+      <span class="text-sm text-gray-600">Tipo</span>
+      <select class="border rounded px-2 py-1 focus:outline-none focus:ring-2 focus:ring-black" [ngModel]="tipo()" (ngModelChange)="tipo.set($event)" name="tipo">
+        <option value="pelicula">Película</option>
+        <option value="libro">Libro</option>
+        <option value="serie">Serie</option>
+        <option value="otro">Otro</option>
+      </select>
+    </label>
+    <div class="flex items-center gap-2">
+      <button type="submit" class="bg-black text-white rounded px-4 py-2 cursor-pointer hover:bg-gray-800">Agregar</button>
+      <button type="button" class="border rounded px-4 py-2 cursor-pointer hover:bg-gray-100" (click)="limpiar()">Limpiar todo</button>
+    </div>
+  </form>
+
+  <ul class="mt-4 space-y-2">
+    <li *ngFor="let f of lista()" class="border rounded px-3 py-2 bg-white  flex justify-between items-center">
+      <div>
+        <strong>{{ f.titulo }}</strong>
+        <span class="text-sm ml-2">({{ f.tipo }})</span>
+      </div>
+      <button class="border rounded px-2 py-1 cursor-pointer hover:bg-gray-800 hover:text-white" (click)="eliminar(f.id)">Eliminar</button>
+    </li>
+  </ul>
+  <app-next />
+</section>
+
+

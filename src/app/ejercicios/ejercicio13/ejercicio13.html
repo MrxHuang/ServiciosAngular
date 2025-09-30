@@ -1,0 +1,29 @@
+<section class="mx-auto max-w-md p-4">
+    <h1 class="text-2xl font-semibold">Ejercicio 13: Bus de eventos</h1>
+    <p class="mt-2 text-neutral-700">Envía mensajes por canales y observa cómo los oyentes reaccionan.</p>
+  
+    <form class="mt-4 grid grid-cols-1 gap-3" (submit)="$event.preventDefault(); enviar()">
+      <label class="flex flex-col">
+        <span class="text-sm text-gray-600">Canal</span>
+        <input type="text" class="border rounded px-2 py-1 focus:outline-none focus:ring-2 focus:ring-black" [ngModel]="canal()" (ngModelChange)="canal.set($event)" name="canal" placeholder="chat, notificaciones, ..." />
+      </label>
+      <label class="flex flex-col">
+        <span class="text-sm text-gray-600">Mensaje</span>
+        <input type="text" class="border rounded px-2 py-1 focus:outline-none focus:ring-2 focus:ring-black" [ngModel]="mensaje()" (ngModelChange)="mensaje.set($event)" name="mensaje" />
+      </label>
+      <div>
+        <button type="submit" class="bg-black text-white rounded px-4 py-2 cursor-pointer hover:bg-gray-800">Enviar</button>
+      </div>
+    </form>
+  
+    <div class="mt-4">
+      <h2 class="text-lg font-medium">Log</h2>
+      <ul class="mt-2 space-y-1">
+        <li *ngFor="let l of log()" class="border rounded px-3 py-2 bg-white dark:bg-neutral-800">{{ l }}</li>
+      </ul>
+    </div>
+    <app-next />
+  </section>
+  
+  
+  

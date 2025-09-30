@@ -1,0 +1,52 @@
+<section class="mx-auto max-w-md p-4">
+  <h1 class="text-2xl font-semibold">Ejercicio 21: Log de eventos</h1>
+  <p class="mt-2 text-neutral-700">Simula eventos internos y acciones de usuario, visibles en un timeline.</p>
+
+  <div class="mt-4 grid grid-cols-1 gap-3">
+    <div class="grid grid-cols-1 gap-2 p-3 border rounded bg-white">
+      <label class="flex items-center gap-2">
+        <span class="text-sm text-neutral-600">Nivel</span>
+        <select class="border rounded px-2 py-1" [ngModel]="nivel()" (ngModelChange)="nivel.set($event)">
+          <option value="info">info</option>
+          <option value="warn">warn</option>
+          <option value="error">error</option>
+          <option value="debug">debug</option>
+          <option value="action">action</option>
+        </select>
+      </label>
+      <label class="flex items-center gap-2">
+        <span class="text-sm text-neutral-600">Mensaje</span>
+        <input type="text" class="border rounded px-2 py-1 flex-1" [ngModel]="mensaje()" (ngModelChange)="mensaje.set($event)" />
+        <button class="border rounded px-3 py-1.5 hover:bg-neutral-50" (click)="emitir()">Emitir</button>
+      </label>
+      <div class="flex gap-2">
+        <button class="border rounded px-2 py-1 hover:bg-neutral-50" (click)="simularAccion('login')">Simular login</button>
+        <button class="border rounded px-2 py-1 hover:bg-neutral-50" (click)="simularAccion('click')">Simular click</button>
+        <button class="border rounded px-2 py-1 hover:bg-neutral-50" (click)="simularAccion('navegar')">Simular navegación</button>
+        <button class="border rounded px-2 py-1 hover:bg-neutral-50 ml-auto" (click)="limpiar()">Limpiar</button>
+      </div>
+    </div>
+
+    <div class="p-3 border rounded bg-white">
+      <h2 class="text-lg font-medium mb-2">Eventos</h2>
+      <ul class="divide-y">
+        <li *ngFor="let e of eventos()" class="py-2 flex items-start gap-2" [ngClass]="{
+          'text-neutral-800': e.nivel === 'info',
+          'text-yellow-700': e.nivel === 'warn',
+          'text-red-700': e.nivel === 'error',
+          'text-blue-700': e.nivel === 'debug',
+          'text-emerald-700': e.nivel === 'action'
+        }">
+          <span class="text-xs shrink-0 w-28">{{ e.timestamp | date:'HH:mm:ss.SSS' }}</span>
+          <span class="uppercase text-[10px] tracking-wide shrink-0 w-14">{{ e.nivel }}</span>
+          <span class="flex-1">{{ e.mensaje }}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="mt-4 flex justify-end">
+    <a routerLink="/" class="border rounded px-3 py-1.5 hover:bg-neutral-50">Volver al inicio</a>
+  </div>
+</section>
+
+

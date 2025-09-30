@@ -1,0 +1,37 @@
+<section class="mx-auto max-w-md p-4">
+    <h1 class="text-2xl font-semibold">Ejercicio 17: Configuraciones de usuario</h1>
+    <p class="mt-2 text-neutral-700">Actualiza preferencias en memoria (con persistencia local).</p>
+  
+    <div class="mt-4 grid grid-cols-1 gap-3">
+      <label class="flex flex-col">
+        <span class="text-sm text-gray-600">Idioma</span>
+        <select class="border rounded px-2 py-1" [ngModel]="actual().idioma" (ngModelChange)="setIdioma($event)">
+          <option value="es">Español</option>
+          <option value="en">Inglés</option>
+          <option value="fr">Francés</option>
+        </select>
+      </label>
+  
+      <label class="flex flex-col">
+        <span class="text-sm text-gray-600">Tema</span>
+        <select class="border rounded px-2 py-1" [ngModel]="actual().tema" (ngModelChange)="setTema($event)">
+          <option value="system">Sistema</option>
+          <option value="light">Claro</option>
+          <option value="dark">Oscuro</option>
+        </select>
+      </label>
+  
+      <label class="flex items-center gap-2">
+        <input type="checkbox" [ngModel]="actual().notificaciones" (ngModelChange)="setNotificaciones($event)" />
+        <span>Notificaciones</span>
+      </label>
+    </div>
+  
+    <div class="mt-4 p-4 border rounded bg-white">
+      <pre class="text-sm">{{ actual() | json }}</pre>
+    </div>
+    <app-next />
+  </section>
+  
+  
+   

@@ -1,0 +1,41 @@
+<section class="mx-auto max-w-md p-4">
+  <h1 class="text-2xl font-semibold">Ejercicio 18: Niveles y Experiencia</h1>
+  <p class="mt-2 text-neutral-700">Simula un sistema de progresión por experiencia.</p>
+
+  <div class="mt-4 grid grid-cols-1 gap-3">
+    <div class="p-3 border rounded bg-white">
+      <div class="flex items-center justify-between">
+        <span class="text-sm text-neutral-600">XP total</span>
+        <strong>{{ totalXP() }}</strong>
+      </div>
+    </div>
+
+    <div class="p-3 border rounded bg-white grid grid-cols-2 gap-2">
+      <div>
+        <span class="text-sm text-neutral-600">Nivel</span>
+        <div class="text-lg font-semibold">{{ nivel() }}</div>
+      </div>
+      <div>
+        <span class="text-sm text-neutral-600">Rango</span>
+        <div class="text-lg font-semibold">{{ rango() }}</div>
+      </div>
+    </div>
+
+    <div class="p-3 border rounded bg-white">
+      <span class="text-sm text-neutral-600">Progreso al siguiente nivel</span>
+      <div class="mt-2 h-3 w-full bg-neutral-200 rounded">
+        <div class="h-3 bg-black rounded" [style.width]="progreso() + '%'" aria-hidden="true"></div>
+      </div>
+      <div class="mt-1 text-xs text-neutral-600">{{ progreso() }}% de {{ siguiente() }} XP</div>
+    </div>
+
+    <div class="grid grid-cols-3 gap-2 items-center">
+      <input type="number" class="border rounded px-2 py-1" [ngModel]="cantidad()" (ngModelChange)="cantidad.set($event)" />
+      <button class="border rounded px-3 py-1.5 hover:bg-neutral-50" (click)="sumar()">Sumar XP</button>
+      <button class="border rounded px-3 py-1.5 hover:bg-neutral-50" (click)="reiniciar()">Reiniciar</button>
+    </div>
+  </div>
+  <app-next />
+</section>
+
+

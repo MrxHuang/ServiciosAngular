@@ -1,0 +1,17 @@
+<section class="mx-auto max-w-md p-4">
+    <h1 class="text-2xl font-semibold">Ejercicio 15: Cálculo de edad</h1>
+    <p class="mt-2 text-neutral-700">Introduce tu fecha de nacimiento.</p>
+  
+    <label class="mt-4 flex flex-col">
+      <span class="text-sm text-gray-600">Fecha de nacimiento</span>
+      <input type="date" class="border rounded px-2 py-1 focus:outline-none focus:ring-2 focus:ring-black" [ngModel]="nacimiento()" (ngModelChange)="nacimiento.set($event)" />
+    </label>
+  
+    <div class="mt-4 p-4 border rounded bg-white dark:bg-neutral-800" *ngIf="resultado() as r">
+      <p>Edad: <strong>{{ r.years }}</strong> años, <strong>{{ r.months }}</strong> meses y <strong>{{ r.days }}</strong> días.</p>
+    </div>
+    <app-next />
+  </section>
+  
+  
+  

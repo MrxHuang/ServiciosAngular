@@ -1,0 +1,31 @@
+<section class="mx-auto max-w-md p-4">
+  <h1 class="text-2xl font-semibold">Ejercicio 19: Datos de ejemplo para gráficos</h1>
+  <p class="mt-2 text-neutral-700">Genera datos simulados para barras, líneas o mixto.</p>
+
+  <div class="mt-4 grid grid-cols-1 gap-3">
+    <label class="flex flex-col">
+      <span class="text-sm text-gray-600">Tipo de gráfico</span>
+      <select class="border rounded px-2 py-1" [ngModel]="tipo()" (ngModelChange)="tipo.set($event); generar()">
+        <option value="barras">Barras</option>
+        <option value="lineas">Líneas</option>
+        <option value="mixto">Mixto</option>
+      </select>
+    </label>
+
+    <button class="border rounded px-3 py-1.5 hover:bg-neutral-50" (click)="generar()">Regenerar datos</button>
+
+    <div class="p-3 border rounded bg-white" *ngIf="tipo() === 'barras' || tipo() === 'mixto'">
+      <h2 class="text-lg font-medium mb-2">Barras</h2>
+      <div class="text-sm text-neutral-600">Categorías: {{ categorias() }}</div>
+      <pre class="text-xs mt-2">{{ seriesBarras() | json }}</pre>
+    </div>
+
+    <div class="p-3 border rounded bg-white" *ngIf="tipo() === 'lineas' || tipo() === 'mixto'">
+      <h2 class="text-lg font-medium mb-2">Líneas</h2>
+      <pre class="text-xs">{{ seriesLineas() | json }}</pre>
+    </div>
+  </div>
+  <app-next />
+</section>
+
+
